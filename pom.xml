@@ -5,14 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sofwaremill.test</groupId>
-    <artifactId>fray-test</artifactId>
+    <artifactId>fray-pres</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-    <name>fray-test</name>
+    <name>fray-pres</name>
+
+    <modules>
+        <module>fray</module>
+        <module>lincheck</module>
+    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
+        <fray.version>0.8.5</fray.version>
+        <lincheck.version>3.5</lincheck.version>
+        <jox.version>1.1.2</jox.version>
     </properties>
 
     <dependencyManagement>
@@ -24,52 +33,45 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>com.softwaremill.jox</groupId>
+                <artifactId>channels</artifactId>
+                <version>${jox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.pastalab.fray</groupId>
+                <artifactId>fray-junit</artifactId>
+                <version>${fray.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.lincheck</groupId>
+                <artifactId>lincheck</artifactId>
+                <version>${lincheck.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
-            <groupId>com.softwaremill.jox</groupId>
-            <artifactId>channels</artifactId>
-            <version>1.1.2</version>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Optionally: parameterized tests support -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.pastalab.fray</groupId>
-            <artifactId>fray-junit</artifactId>
-            <version>0.8.5</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.pastalab.fray.maven</groupId>
-                <artifactId>fray-plugins-maven</artifactId>
-                <version>0.8.5</version>
-                <executions>
-                    <execution>
-                        <id>prepare-fray</id>
-                        <goals>
-                            <goal>prepare-fray</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.pastalab.fray.maven</groupId>
+                    <artifactId>fray-plugins-maven</artifactId>
+                    <version>${fray.version}</version>
+                </plugin>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.4.0</version>
