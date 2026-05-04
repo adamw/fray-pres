@@ -1,0 +1,20 @@
+200:
+Single test: mvn test -Dtest=S200_Concurrency_test#bankTest
+
+210:
+mvn test -Dtest=S210_Replay_test
+
+220:
+* The problem: get() followed by set() is not an atomic operation!
+* We created a sequential interleaving to understand the problem
+
+?:
+Run in IDE:
+custom JRE - target/fray/fray-java +
+-javaagent:/Users/adamw/.m2/repository/org/pastalab/fray/instrumentation/fray-instrumentation-agent/0.8.5/fray-instrumentation-agent-0.8.5.jar
+-agentpath:$MODULE_DIR$/target/fray/fray-jvmti/libjvmti.so
+
+Fray notes:
+* sound, not complete
+* sleeps are rewritten to no-ops (Thread.wait(n) -> Thread.wait())
+* no recording/replaying of Random & File I/O
