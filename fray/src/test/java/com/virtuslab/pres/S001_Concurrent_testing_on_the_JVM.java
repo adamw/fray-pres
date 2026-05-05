@@ -13,4 +13,4 @@ package com.virtuslab.pres;
          ╚██████╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚████║
           ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝
  */
-public class S001_Concurrent_testing_java {}
+public class S001_Concurrent_testing_on_the_JVM {}
