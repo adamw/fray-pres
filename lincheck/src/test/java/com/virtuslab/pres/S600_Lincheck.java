@@ -4,33 +4,26 @@ import org.jetbrains.lincheck.Lincheck;
 import org.junit.jupiter.api.Test;
 
 public class S600_Lincheck {
-    class Counter {
-        int c = 0;
-        void increment() {
-            c++;
+    static class Bank {
+        int balance = 100;
+
+        void withdraw(int amount) {
+            if (balance >= amount) {
+                balance = balance - amount;
+            }
         }
     }
 
     @Test
     public void bankTest() {
         Lincheck.runConcurrentTest(() -> {
-            var counter = new Counter();
+            var bank = new Bank();
+            Thread t1 = new Thread(() -> bank.withdraw(75));
+            Thread t2 = new Thread(() -> bank.withdraw(75));
+            t1.start(); t2.start();
+            try { t1.join(); t2.join(); } catch (InterruptedException e) { throw new RuntimeException(e); }
 
-            var t1 = Thread.ofPlatform().start(() -> counter.increment());
-            var t2 = Thread.ofPlatform().start(() -> counter.increment());
-
-            try {
-                t1.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                t2.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-
-            assert counter.c == 2;
+            assert bank.balance >= 0 : "balance went negative: " + bank.balance;
         });
     }
 }

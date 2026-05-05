@@ -1,5 +1,6 @@
 200:
 Single test: mvn test -Dtest=S200_Concurrency_test#bankTest
+Fray - developed at Carnegie Mellon University (CMU) Program Analysis, Software Testing, and Applications (PASTA) research lab
 
 210:
 mvn test -Dtest=S210_Replay_test
@@ -18,3 +19,20 @@ Fray notes:
 * sound, not complete
 * sleeps are rewritten to no-ops (Thread.wait(n) -> Thread.wait())
 * no recording/replaying of Random & File I/O
+* IntelliJ plugin - manual thread scheduling
+
+600:
+* Thread.ofPlatform().start(runnable) is not instrumented by Lincheck
+* Lincheck - developed by JetBrains, originally for verifying concurrent data structures used by coroutines
+
+700:
+* stress test -> finds bug, but doesn't produce an interleaving; threads are started together
+* as in property-based testing you can specify generators for parameters
+
+710:
+* LTS - Labeled Transition Graph
+
+Linearizability: Lincheck tries to match the operation results to a sequential history that preserves the order of operations in threads.
+
+740:
+* obstruction-freedom: every operation must finish in a bounded number of steps if other threads stop. Catches accidental locking in lock-free claims.

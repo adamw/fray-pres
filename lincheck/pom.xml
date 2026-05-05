@@ -15,6 +15,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.softwaremill.jox</groupId>
+            <artifactId>channels</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.jetbrains.lincheck</groupId>
             <artifactId>lincheck</artifactId>
             <scope>test</scope>
