@@ -14,10 +14,13 @@ public class S320_Fray_search_strategies {
     // * selectively uniform random walk (SURW)
 
     // What works best:
-    // * POS: randomize priorities for all threads, pick the one with the highest priority
-    //        if this is the highest-priority thread, each d step demote it to lowest priority
-    // * PCT: randomize priorities for all threads, pick the one with the highest priority
-    //        reassign random priorities for threads that are competing with the scheduled thread
+    // * POS: randomize priorities for all threads, pick the one
+    //        with the highest priority; if this is the highest-priority
+    //        thread, each d step demote it to lowest priority
+    // * PCT: randomize priorities for all threads, pick the one with
+    //        the highest priority reassign random priorities for threads
+    //        that are competing with the scheduled thread
     // * random: pick threads uniformly at random
-    // * SURW: pick a thread basing on the number of "interesting events" remaining per thread
+    // * SURW: pick a thread basing on the number of "interesting events"
+    //         remaining per thread
 }

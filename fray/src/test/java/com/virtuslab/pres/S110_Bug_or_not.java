@@ -11,7 +11,7 @@ public class S110_Bug_or_not {
         Account(int id, int balance) { this.id = id; this.balance = balance; }
     }
 
-    static void transferBroken(Account from, Account to, int amount) {
+    static void transfer(Account from, Account to, int amount) {
         from.lock.lock();
         try {
             to.lock.lock();

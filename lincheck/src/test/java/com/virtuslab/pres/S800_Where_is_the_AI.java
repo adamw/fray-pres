@@ -7,5 +7,6 @@ public class S800_Where_is_the_AI {
 
     // But: they must be told to do so.
 
-    // + Fray ships with an MCP server, that lets an LLM orchestrate the scheduling
+    // + Fray ships with an MCP server, that lets an LLM
+    //   orchestrate the scheduling
 }

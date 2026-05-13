@@ -31,7 +31,8 @@ public class S810_Fray_and_Lincheck {
         ℹ️ extensively used when developing Kotlin coroutines
         🍀 model & stress testing OOTB
         🍀 generating test cases given operations,
-           💔 but only for non-blocking data structures, or Kotlin-coroutine-based ones
+           💔 but only for non-blocking data structures,
+              or Kotlin-coroutine-based ones
         💔 not everything is instrumented
         🍀 failing interleaving rich output (variable names etc.),
            💔 but not always readable
