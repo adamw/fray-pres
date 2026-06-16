@@ -14,7 +14,7 @@ public class S810_Fray_and_Lincheck {
         /*
         ℹ️ shadow locking
         ℹ️ since 2024
-        ℹ️ found multiple bugs in OSS projectts
+        ℹ️ found multiple bugs in OSS projects
         🍀 pluggable thread schedulers
         🍀 replay scenarios
         🍀 low-level instrumentation
